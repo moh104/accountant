@@ -1,7 +1,6 @@
 #ifndef SEASONING_H
 #define SEASONING_H
 
-
 #include "item.hpp"
 
 class Seasoning : public Item

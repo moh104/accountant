@@ -6,8 +6,7 @@ using namespace std;
 
 ostream& Seasoning::utilityPrint(ostream &outPut) const noexcept
 {
-    outPut<< "----------";
-    outPut  << left << setw(10) << "Seasoning:\n";
+    outPut << "Seasoning:\n";
     Item::utilityPrint(outPut) << "   [Spice quality rate -> " << getQualityRating() << "]\n";
     return outPut;
 }

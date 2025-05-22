@@ -26,6 +26,15 @@ ostream & Item::utilityPrint(ostream& outPut) const noexcept
     return outPut;
 }
 
+void Item::setSoldCount(int i_soldCount)
+{
+    if (i_soldCount < 0)
+    {
+        throw invalid_argument("The quantity purchased cannot be negative.");
+    }
+    soldCount = i_soldCount;
+}
+
 void Item::setName(const std::string &i_name)
 {
     if(i_name.empty())
@@ -76,7 +85,7 @@ const std::string& Item::getName() const noexcept
     return name;
 }
 
-unsigned int Item::getSoldCount() const noexcept
+int Item::getSoldCount() const noexcept
 {
     return soldCount;
 }

@@ -6,8 +6,7 @@ using namespace std;
 
 ostream& Snack::utilityPrint(ostream &outPut) const noexcept
 {
-    outPut << "----------";
-    outPut  << left << setw(10) << "Snack:\n";
+    outPut << "Snack:\n";
     Item::utilityPrint(outPut) << "   [Weight of each package -> " << getPackageWeight() << " g]\n";
     return outPut;
 }

@@ -12,7 +12,7 @@ class Fruit : public Item
 
     public:
         Fruit(const std::string& i_name , USD i_price , int i_inventory , bool i_isGreenHouse);
-
+        
         void setIsGreenHouse(bool) noexcept;
 
         [[nodiscard]] bool getIsGreenHouse() const noexcept;

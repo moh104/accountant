@@ -6,8 +6,7 @@ using namespace std;
 
 std::ostream& Fruit::utilityPrint(ostream& outPut) const noexcept
 {
-    outPut << "----------";
-    outPut << left << setw(10) << "Fruit:\n";
+    outPut << "Fruit:\n";
     Item::utilityPrint(outPut) << "   [Cultivation type -> " << (getIsGreenHouse() ?  "GreenHouse" : "Natural") << "]\n";
     return outPut;
 }
