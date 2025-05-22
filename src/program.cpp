@@ -8,6 +8,38 @@
 
 using namespace std;
 
+Program::Program()
+{
+    while (true)
+    {
+        try
+        {
+            setCart();
+        }
+        catch (const invalid_argument& e)
+        {
+            cerr << "(ERROR) " << e.what() << "\nPlease try again.\n";
+            continue;
+        }
+        break;
+    }
+
+    while (true)
+    {
+        try
+        {
+            setInventory();
+        }
+        catch (const invalid_argument& e)
+        {
+            cerr << "(ERROR) " << e.what() << "\nPlease try again.\n";
+            continue;
+        }
+
+        break;
+    }
+}
+
 int Program::get_intNumber(const string& output)
 {
     string input;
@@ -243,4 +275,82 @@ Item* Program::getItem(size_t index)
         throw invalid_argument("Invalid item selection.");
     }
     return inventory[index - 1];
+}
+
+void Program::run()
+{
+    int choice;
+
+    while (true)
+    {
+
+        choice = get_intNumber("Enter your command number (To see the menu entered 6): ");
+        try
+        {
+            if (choice == 1)
+            {
+                displayInventory();
+            }
+            else if (choice == 2)
+            {
+                displayInventory();
+                Item* item = getItem(static_cast<size_t>(get_intNumber("\nEnter the index of the item to add: ")));
+                cart->addItem(item);
+                cout << "Item '" << item->getName() << "' added to cart.\n";
+            }
+            else if (choice == 3)
+            {
+                cout << "Enter the name of the item to remove from cart: ";
+                string name;
+                getline(cin, name);
+                cart->removeItem(name);
+                cout << "Successfully removed from cart.\n";
+            }
+            else if (choice == 4)
+            {
+                cout << "\n-----YOUR SHOPPING CART-----\n";
+                cart->print();
+            }
+            else if (choice == 5)
+            {
+                cart->makeTran();
+                cout << "Checkout complete.\n";
+            }
+            else if (choice == 6)
+            {
+                menu();
+            }
+            else if (choice == 7)
+            {
+                cart->showBankAccount();
+            }
+            else if (choice == 8)
+            {
+                cout << "\nExiting the system.\n";
+                break;
+            }
+            else
+            {
+                cout << "Invalid choice. Please try again.\n";
+            }
+        }
+        catch (const invalid_argument& e)
+        {
+            cerr << "(ERROR) " << e.what() << "\nPlease try again.\n";
+        }
+        catch (...)
+        {
+            cout << 1;
+        }
+
+    }
+}
+
+Program::~Program()
+{
+    for (auto item : inventory)
+    {
+        delete item;
+    }
+    delete cart;
 }
