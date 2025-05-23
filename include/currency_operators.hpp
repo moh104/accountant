@@ -1,7 +1,7 @@
 #ifndef CURRENCY_OPERATORS_H
 #define CURRENCY_OPERATORS_H
 
-#include "Currency.hpp"
+#include "currency.hpp"
 #include "usd.hpp"
 
 USD operator+(const Currency& , const Currency&);

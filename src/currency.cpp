@@ -1,5 +1,5 @@
 #include <stdexcept>
-#include "Currency.hpp"
+#include "currency.hpp"
 #include "usd.hpp"
 
 Currency::Currency(double i_amount)

@@ -1,7 +1,7 @@
 #ifndef EUR_H
 #define EUR_H
 
-#include "Currency.hpp"
+#include "currency.hpp"
 
 class EUR : public Currency
 {

@@ -1,8 +1,8 @@
 #include <iostream>
 #include "currency.hpp"
-#include "IRR.hpp"
-#include "EUR.hpp"
-#include "USD.hpp"
+#include "irr.hpp"
+#include "eur.hpp"
+#include "usd.hpp"
 #include "currency_operators.hpp"
 #include "bankaccount.hpp"
 #include "program.hpp"
